@@ -1,0 +1,7 @@
+- name: install PHP 5.3
+  yum: name={{ item }} state=present
+  with_items:
+    - php
+    - php-opcache
+    - php-mysql
+  when: "{{ php_version }} == 5.3"
