@@ -4,3 +4,4 @@
   roles:
      - php
      - apache
+     - mysql

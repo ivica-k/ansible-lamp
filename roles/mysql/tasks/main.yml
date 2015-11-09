@@ -1,0 +1,17 @@
+- name: install MySQL
+  yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
+    - mysql
+    - mysql-server
+    
+- name: open mysql port
+  command: /sbin/iptables -I INPUT 1 -p tcp --dport 3306 -j ACCEPT -m comment --comment "MySQL" 
+  notify: restart_iptables
+  
+- name: edit mysql config
+  lineinfile: dest=/{{ mysql_config_path }} line="{{ item }}"
+  with_items:
+    - "port = {{ mysql_port }}"
+    - "bind-address = {{ mysql_bind_address }}"
+  notify: restart_mysql
