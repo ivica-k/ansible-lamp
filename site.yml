@@ -1,0 +1,5 @@
+---
+- hosts: lamp
+  sudo: yes
+  roles:    
+     - apache

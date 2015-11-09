@@ -1,0 +1,5 @@
+- name: restart_iptables
+  command: 'service iptables save && service iptables restart'
+  
+- name: restart_apache
+  service: name=httpd state=started enabled=yes
