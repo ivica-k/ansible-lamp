@@ -1,5 +1,2 @@
-- name: restart httpd
-  service: name=httpd state=restarted enabled=yes
-
 - name: restart iptables
   command: 'service iptables save && service iptables restart'

@@ -5,7 +5,8 @@
   
 - name: install Apache
   yum: name={{ item }} state=present
-  notify:
-    - restart apache
   with_items:
     - httpd
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
