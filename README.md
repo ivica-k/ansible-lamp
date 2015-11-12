@@ -1,4 +1,4 @@
-# ansible-java
+# ansible-lamp
 
 Installs LAMP stack with PHP 5.3 or 5.5
 
