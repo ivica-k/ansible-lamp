@@ -24,4 +24,4 @@ Example Playbook
 		 
 Run with
 ----------------
-ansible-playbook -i hosts site.yml --extra-vars "mysql_root_password=INSERT_PASSWORD"
+	ansible-playbook -i hosts site.yml --extra-vars "mysql_root_password=INSERT_PASSWORD"
