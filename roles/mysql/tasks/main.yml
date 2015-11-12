@@ -4,6 +4,7 @@
     - libselinux-python
     - mysql
     - mysql-server
+    - MySQL-python
     
 - name: open mysql port
   command: /sbin/iptables -I INPUT 1 -p tcp --dport 3306 -j ACCEPT -m comment --comment "MySQL" 
@@ -14,4 +15,19 @@
   with_items:
     - "port = {{ mysql_port }}"
     - "bind-address = {{ mysql_bind_address }}"
-  notify: restart_mysql
+
+- name: restart mysql
+  service: name=mysqld state=restarted enabled=yes
+
+- name: Change root user password on first run
+  mysql_user: login_user=root
+              login_password=''
+              name=root
+              password={{ mysql_root_password }}
+              priv=*.*:ALL,GRANT
+              host={{ item }}
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
