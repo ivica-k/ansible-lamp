@@ -1,8 +1,8 @@
-ansible-lamp
+##ansible-lamp
 
 Installs LAMP stack with PHP 5.3 or 5.5
 
-Role variables
+##Role variables
 
     mysql_config_path: '/etc/my.cnf'
 	mysql_port: "3306"
