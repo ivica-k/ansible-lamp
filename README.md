@@ -14,7 +14,7 @@ Example Playbook
 ----------------
 
     ---
-	- hosts: my_server
+	- hosts: lamp_host
 	  sudo: yes
 	  roles:
 		 - php
@@ -24,4 +24,4 @@ Example Playbook
 		 
 Run with
 ----------------
-	ansible-playbook -i hosts site.yml --extra-vars "mysql_root_password=INSERT_PASSWORD"
+	ansible-playbook site.yml --extra-vars "mysql_root_password=INSERT_PASSWORD"

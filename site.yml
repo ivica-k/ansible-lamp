@@ -1,5 +1,5 @@
 ---
-- hosts: lamp
+- hosts: lamp_host
   sudo: yes
   roles:
      - php
